@@ -25,6 +25,18 @@ Installation: Add it to your unity assets (drag and drop in the package, or go t
 ![alt text](Media/Simple_Gradient_Sky__thumb.png)
   * A simple procedural skybox that fades from a sky color to a horizon color
 
+## Additional Shaders (beta)
+
+Addon to the existing CubedParadox shaders created by Denwa, but using stencil buffer to create interesting effects; i.e. a portal.
+
+You can find a scene with a demo under `Assets/Cubed's Unity Shaders/Denwa's Stencil Demo.unity`
+
+* Flat Lit Toon OneZ  
+![alt text](Media/Flat_Lit_Toon_OneZ.png)
+  * Flat Lit Toon hidden until masked with the corresponding shader, `Mask OneZ`
+* Mask OneZ  
+  * Mask for `Flat Lit Toon OneZ` which will render the texture when overlapping. This can create a portal like effect.
+  
 ## Notes
 I've added an Amplify Shader Editor template! You can download it **here**: [FlatLitToonAmplifyTemplate.unitypackage](https://github.com/cubedparadox/Cubeds-Unity-Shaders/raw/master/Packages/FlatLitToonAmplifyTemplate.unitypackage)  
 Project contains the following assets:  
