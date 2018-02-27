@@ -1,14 +1,13 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Denwa/Mask OneZ"
+Shader "Denwa/Mask OneZLess NoCull"
 {
     SubShader
     {
         Tags { "RenderType"="Opaque" "Queue"="Geometry-1" }
         ColorMask 0
         ZWrite off
+        Cull off
         
         Stencil
         {
@@ -16,16 +15,8 @@ Shader "Denwa/Mask OneZ"
             Comp always
             Pass replace
         }
-        
-        Pass
-        {
-            Cull Back
-            ZTest Less
-        
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            
+
+        CGINCLUDE
             struct appdata
             {
                 float4 vertex : POSITION;
@@ -44,7 +35,15 @@ Shader "Denwa/Mask OneZ"
             {
                 return half4(1,1,0,1);
             }
-            
+        ENDCG
+        
+        Pass
+        {
+            ZTest Less
+        
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
             ENDCG
         }
     } 
